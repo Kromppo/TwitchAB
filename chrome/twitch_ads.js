@@ -217,7 +217,6 @@ twitch-videoad.js application/javascript
                                                 doTwitchPlayerTask(false, false, false, true, true);
                                             }
                                         }
-
                                     }
                                 }
                             }
@@ -567,6 +566,7 @@ twitch-videoad.js application/javascript
                 reactRootNode = rootNode._reactRootContainer._internalRoot.current;
             }
             videoPlayer = findReactNode(reactRootNode, node => node.setPlayerActive && node.props && node.props.mediaPlayerInstance);
+            videoPlayer = videoPlayer && videoPlayer.props && videoPlayer.props.mediaPlayerInstance ? videoPlayer.props.mediaPlayerInstance : null;
             if (isPausePlay) {
                 videoPlayer.pause();
                 videoPlayer.play();
